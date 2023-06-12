@@ -1,10 +1,15 @@
 ---
-sidebar_label: 'Chapter 2 - Getting started'
+sidebar_label: "Chapter 2 - Getting started"
 sidebar_position: 2
 ---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 # Chapter 2 - Getting started : Install dependencies and create the project
 
 You have as we write this tutorial, two ways to create a new project with Qwik :
+
 - Using npm create command
 - Using Nx and the qwik-nx plugin
 
@@ -18,10 +23,36 @@ npm create qwik@latest
 
 ## Using Nx and the qwik-nx plugin
 
-If you are using Nx, you can use the qwik-nx plugin to create a new project. 
+If you are using Nx, you can use the qwik-nx plugin to create a new project.
 This plugin will create a new Nx workspace with the latest version of Qwik and all the dependencies needed to run it.
 You can find the project here : https://github.com/qwikifiers/qwik-nx
 
 ```bash
 npx create-nx-workspace@latest my-workspace --preset=qwik-nx
 ```
+
+## Run the application
+
+Depending on your install, you have the following options
+
+<Tabs
+  defaultValue="create"
+  values={[
+    { label: "With npm create", value: "create" },
+    { label: "With Qwik Nx", value: "nx" },
+  ]}
+>
+  <TabItem value="create">
+    ```bash
+      npm run start
+    ```
+  </TabItem>
+  <TabItem value="nx">
+  The commands are handled by Nx, and can be found in the `apps/my-app/project.json` file.
+    ```bash
+      nx run my-app:serve
+    ```
+  </TabItem>
+</Tabs>
+
+![Example banner](../static/img/run-qwik-nx-start.png)
