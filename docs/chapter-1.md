@@ -1,0 +1,15 @@
+---
+sidebar_label: 'Chapter 1 - Introduction'
+sidebar_position: 1
+---
+# Chapter 1 - Introduction to Qwik
+
+## What will you learn ?
+
+- What is Qwik ?
+- Be able to create a Qwik application
+- Create a layout with header, footer and menu
+- Have diffrent routes and components
+- Handle forms and basic data display
+- Make requests to an API to fetch data
+- Customize the UI with TailwindCSS
