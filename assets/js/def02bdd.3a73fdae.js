@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkqwik_essentials=self.webpackChunkqwik_essentials||[]).push([[5604],{7641:s=>{s.exports=JSON.parse('{"label":"facebook","permalink":"/qwik-essentials/blog/tags/facebook","allTagsPath":"/qwik-essentials/blog/tags","count":1}')}}]);
