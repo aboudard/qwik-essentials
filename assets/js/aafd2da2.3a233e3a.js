@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkqwik_essentials=self.webpackChunkqwik_essentials||[]).push([[360],{9413:e=>{e.exports=JSON.parse('{"permalink":"/qwik-essentials/blog/tags/facebook","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
