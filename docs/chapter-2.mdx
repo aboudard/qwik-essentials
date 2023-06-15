@@ -21,6 +21,13 @@ The easiest way to create a new project is to use the npm create command. This c
 npm create qwik@latest
 ```
 
+You will be prompted with options to choose from :
+
+![Example banner](../static/img/npm-create-qwik.png)
+
+We might want to create an `Empty App` for this tutorial.
+
+
 ## Using Nx and the qwik-nx plugin
 
 If you are using Nx, you can use the qwik-nx plugin to create a new project.
@@ -40,19 +47,32 @@ Depending on your install, you have the following options
   values={[
     { label: "With npm create", value: "create" },
     { label: "With Qwik Nx", value: "nx" },
-  ]}
->
-  <TabItem value="create">
-    ```bash
-      npm run start
-    ```
-  </TabItem>
-  <TabItem value="nx">
-  The commands are handled by Nx, and can be found in the `apps/my-app/project.json` file.
-    ```bash
-      nx run my-app:serve
-    ```
-  </TabItem>
-</Tabs>
+  ]}>
+<TabItem value="create">
+
+```bash
+npm run start
+```
+
+</TabItem>
+<TabItem value="nx">
+
+The commands are handled by Nx, and can be found in the `apps/my-app/project.json` file.
+
+```bash
+  nx run my-app:serve
+```
+
+With the correct plugin installed in your IDE, you can run the commands in GUI.
+- Plugin for VSCode : https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console
+- Plugin for Intellij IDEA : https://plugins.jetbrains.com/plugin/15101-nx-console-idea
 
 ![Example banner](../static/img/run-qwik-nx-start.png)
+
+</TabItem>
+</Tabs>
+
+### The application structure
+
+Depending on the choice you made, you will have a different structure for your application.
+
