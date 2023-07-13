@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Chapter 2 - Getting started"
+sidebar_label: "Getting started"
 sidebar_position: 2
 ---
 
@@ -40,6 +40,7 @@ npx create-nx-workspace@latest my-workspace --preset=qwik-nx
 
 ## Run the application
 
+### Development server
 Depending on your install, you have the following options
 
 <Tabs
@@ -51,7 +52,9 @@ Depending on your install, you have the following options
 <TabItem value="create">
 
 ```bash
-npm run start
+npm start
+yarn start
+pnpm start
 ```
 
 </TabItem>
@@ -71,6 +74,32 @@ With the correct plugin installed in your IDE, you can run the commands in GUI.
 
 </TabItem>
 </Tabs>
+
+### Build the application for production
+<Tabs
+  defaultValue="create"
+  values={[
+    { label: "With npm create", value: "create" },
+    { label: "With Qwik Nx", value: "nx" },
+  ]}>
+<TabItem value="create">
+
+```bash
+npm preview
+yarn preview
+pnpm preview
+```
+
+</TabItem>
+<TabItem value="nx">
+
+```bash
+  nx run my-app:preview
+```
+
+</TabItem>
+</Tabs>
+
 
 ### The application structure
 
