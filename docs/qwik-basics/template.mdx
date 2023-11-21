@@ -1,0 +1,19 @@
+---
+sidebar_position: 2
+---
+
+# The template of the Component
+
+Just like in any other Javascript framework, we want to display some data from the component with the template.
+Let's display a simple `title` property from the component.
+
+
+```tsx
+// src/components/todo/todo.tsx
+export const Todo = component$(() => {
+    const title = 'Learn Qwik';
+    return (
+        <>Todo: {title}</>
+    );
+});
+```

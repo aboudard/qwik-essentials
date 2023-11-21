@@ -1,0 +1,42 @@
+---
+sidebar_position: 1
+---
+
+# Create a Component
+
+In the `src/components` folder, create a new folder for your component.
+The folder name will be the name of your component. Inside the folder, create a file with the same name `name.tsx`.
+This is where you will write your component :
+
+```tsx
+// src/components/todo/todo.tsx
+import { component$ } from "@builder.io/qwik";
+
+export const Todo = component$(() => {
+    return (
+        <>Todo</>
+    );
+});
+```
+
+Note that the return function needs to return a JSX element, it could be a pseudo element or an HTML element.
+
+## Add a component to the page
+
+This component can now be added in the `routes/index.tsx` file :
+
+```tsx
+export default component$(() => {
+  return (
+    <>
+      <h1>Hi 👋</h1>
+      <p>
+        Can't wait to see what you build with qwik!
+        <br />
+        Happy coding.
+      </p>
+      <Todo />
+    </>
+  );
+});
+```
