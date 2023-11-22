@@ -9,7 +9,7 @@ Let's display a simple `title` property from the component.
 
 
 ```tsx
-// src/components/todo/todo.tsx
+// src/components/todo/todo.tsx 
 export const Todo = component$(() => {
     const title = 'Learn Qwik';
     return (
@@ -17,3 +17,37 @@ export const Todo = component$(() => {
     );
 });
 ```
+
+The attributes of an element can be binded with the same syntax.
+
+```tsx
+// src/components/todo/todo.tsx
+export const Todo = component$(() => {
+    const title = 'Learn Qwik';
+    const isDone = true;
+    return (
+        <div>
+            <h1>{title}</h1>
+            <input type="checkbox" checked={isDone} />
+        </div>
+    );
+});
+```
+
+Classes applied to an element can be declared either with an array or an object.
+    
+```tsx
+// src/components/todo/todo.tsx
+export const Todo = component$(() => {
+    const title = 'Learn Qwik';
+    const isDone = true;
+    const classes = ['todo', 'done'];
+    return (
+        <div class={classes}>
+            <h1>{title}</h1>
+            <input type="checkbox" checked={isDone} />
+        </div>
+    );
+});
+```
+
