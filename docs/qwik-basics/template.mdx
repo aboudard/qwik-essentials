@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # The template of the Component
 
+## Display simple data
+
 Just like in any other Javascript framework, we want to display some data from the component with the template.
 Let's display a simple `title` property from the component.
 
@@ -27,7 +29,7 @@ export const Todo = component$(() => {
     const isDone = true;
     return (
         <div>
-            <h1>{title}</h1>
+            <strong>{title}</strong>
             <input type="checkbox" checked={isDone} />
         </div>
     );
@@ -50,4 +52,54 @@ export const Todo = component$(() => {
     );
 });
 ```
+## Bind data to the template
 
+You could notice that the boolean value `isDone` does check the checkbox. 
+But what if we want to change the value of `isDone` when the checkbox is clicked?
+If we write this down : 
+
+```tsx
+<strong>{title} : {JSON.stringify(isDone)}</strong><br />
+```
+
+We can see that the value doesn't change, there is no interaction.
+
+To make the checkbox interactive, we need to bind the value of the checkbox to the `isDone` property.
+This is an automatic two-way binding, so when the checkbox is clicked, the value of `isDone` will change.
+
+```tsx
+// src/components/todo/todo.tsx
+export const Todo = component$(() => {
+    const title = 'Learn Qwik';
+    const isDone = true;
+    return (
+        <div>
+            <strong>{title} : {JSON.stringify(isDone.value)}</strong><br />
+            <input type="checkbox" bind:checked={isDone} />
+        </div>
+    );
+});
+```
+Note that the `isDone` property is a Signal, which can be accessed with `isDone.value`.
+But when we bind this value to the checkbox, we don't need to access the value, we just need to bind the Signal itself.
+
+## Use a method in the template
+
+This auto binding is handy, but what if we want to do something more complex when the checkbox is clicked?
+We can use a method in the template to handle the event.
+
+```tsx
+// src/components/todo/todo.tsx
+export const Todo = component$(() => {
+    const title = 'Learn Qwik';
+    const isDone = useSignal(true);
+    return (
+        <div>
+            <strong>{title} : {JSON.stringify(isDone.value)}</strong><br />
+            <input type="checkbox" 
+            checked={isDone.value} 
+            onClick$={() => isDone.value = !isDone.value} />
+        </div>
+    );
+});
+```

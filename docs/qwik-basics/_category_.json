@@ -3,6 +3,6 @@
     "position": 3,
     "link": {
       "type": "generated-index",
-      "description": "Qwik concepts around components."
+      "description": "Qwik concepts around developing components. Only coding concepts will be covered here. Not the internals of the framework."
     }
   }
