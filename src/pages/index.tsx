@@ -16,7 +16,7 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className="button button--secondary text-white button--lg"
             to="/docs/chapter-1">
             Qwik Tutorial
           </Link>

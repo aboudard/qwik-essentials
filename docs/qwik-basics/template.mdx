@@ -103,3 +103,25 @@ export const Todo = component$(() => {
     );
 });
 ```
+
+## Conditional rendering
+
+We have a boolean variable in the component, now we can use it to conditionally render some elements.
+
+```tsx
+// src/components/todo/todo.tsx
+export const Todo = component$(() => {
+    const title = 'Learn Qwik';
+    const isDone = true;
+    return (
+        <div>
+            <strong>{title} : {JSON.stringify(isDone.value)}</strong><br />
+            <input type="checkbox" bind:checked={isDone} />
+            <p>
+            {isDone.value ? <span id="done">Done</span> : <span id="notdone">Not Done</span>}
+            </p>
+        </div>
+    );
+});
+```
+This is a basic use of TSX, of course we could compute the id of the span to simplify the template.
