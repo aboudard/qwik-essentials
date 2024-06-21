@@ -1,0 +1,34 @@
+---
+sidebar_position: 3
+---
+
+# Control structures
+
+## Display multiple data
+
+Following a JSX SyntaxError, let's display a list of TODO items in a template.
+First, we can use a static list of items. 
+This list will be handled by a specific Signal method : [useStore](https://qwik.dev/docs/components/state/#usestore).
+
+```tsx
+// src/components/todos/todos.tsx
+export const Todos = component$(() => {
+    const todos = useStore([
+        { title: 'Learn Qwik', isDone: true },
+        { title: 'Build a Qwik app', isDone: false },
+        { title: 'Deploy the app', isDone: false },
+    ]);
+    return (
+        <div>
+            <h1>TODO List</h1>
+            <ul>
+                {todos.map((todo, index) => (
+                    <li key={index}>
+                        <strong>{todo.title}</strong> : {JSON.stringify(todo.isDone)}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+});
+```

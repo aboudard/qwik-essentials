@@ -71,7 +71,7 @@ This is an automatic two-way binding, so when the checkbox is clicked, the value
 // src/components/todo/todo.tsx
 export const Todo = component$(() => {
     const title = 'Learn Qwik';
-    const isDone = true;
+    const isDone = useSignal(true);
     return (
         <div>
             <strong>{title} : {JSON.stringify(isDone.value)}</strong><br />
@@ -80,7 +80,7 @@ export const Todo = component$(() => {
     );
 });
 ```
-Note that the `isDone` property is a Signal, which can be accessed with `isDone.value`.
+Note that the `isDone` property is a [Signal](https://qwik.dev/docs/components/state/#usesignal), which can be accessed with `isDone.value`.
 But when we bind this value to the checkbox, we don't need to access the value, we just need to bind the Signal itself.
 
 ## Use a method in the template
@@ -103,6 +103,8 @@ export const Todo = component$(() => {
     );
 });
 ```
+Note that this method is declared in the template, but it could be declared in the component as well.
+
 
 ## Conditional rendering
 
@@ -125,3 +127,23 @@ export const Todo = component$(() => {
 });
 ```
 This is a basic use of TSX, of course we could compute the id of the span to simplify the template.
+In order to do that simply, we can derive a signal from the `isDone` signal.
+This is done with the [useComputed$](https://qwik.dev/docs/components/state/#usecomputed) method.
+
+```tsx
+// src/components/todo/todo.tsx
+export const Todo = component$(() => {
+    const title = 'Learn Qwik';
+    const isDone = useSignal(true);
+    const doneId = useComputed$(() => isDone.value ? 'done' : 'notdone');
+    return (
+        <div>
+            <strong>{title} : {JSON.stringify(isDone.value)}</strong><br />
+            <input type="checkbox" bind:checked={isDone} />
+            <p>
+            <span id={doneId.value}> {doneId.value === 'done' ? 'Done' : 'Not Done'}</span>
+            </p>
+        </div>
+    );
+});
+```
