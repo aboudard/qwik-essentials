@@ -32,3 +32,48 @@ export const Todos = component$(() => {
     );
 });
 ```
+
+### Inject data in a child component
+
+Now, let's create a child component to display a single TODO item.
+We will inject the data from the parent component to the child component.
+This is done with the `props` attribute that should be typed within the child component.
+
+```tsx
+// src/components/todo-item/todo-item.tsx
+interface TodoItemProps {
+    title: string;
+    isDone: boolean;
+}
+
+export const TodoItem = component$<{ todo: TodoItemProps }>((props) => {
+    return (
+        <li>
+            <strong>{props.todo.title}</strong> : {JSON.stringify(props.todo.isDone)}
+        </li>
+    );
+});
+```
+
+Then, we can use the `Todo` component in the `Todos` component.
+
+```tsx
+// src/components/todos/todos.tsx
+export const Todos = component$(() => {
+    const todos = useStore([
+        { title: 'Learn Qwik', isDone: true },
+        { title: 'Build a Qwik app', isDone: false },
+        { title: 'Deploy the app', isDone: false },
+    ]);
+    return (
+        <div>
+            <h1>TODO List</h1>
+            <ul>
+                {todos.map((todo, index) => (
+                    <TodoItem key={index} todo={todo} />
+                ))}
+            </ul>
+        </div>
+    );
+});
+``` 
