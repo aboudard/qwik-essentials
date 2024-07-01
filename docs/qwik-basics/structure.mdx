@@ -76,4 +76,19 @@ export const Todos = component$(() => {
         </div>
     );
 });
-``` 
+```
+
+## Conditional rendering
+
+We have a boolean variable in the component, now we can use it to conditionally render some elements.
+
+```tsx
+// src/components/todo-item/todo-item.tsx
+export const TodoItem = component$<{todo: TodoItemProps}>((props) => {
+    return (
+            <span>
+                <strong>{props.todo.title}</strong> : {props.todo.isDone ? 'Done' : 'Not Done'}
+            </span>
+    );
+});
+```
