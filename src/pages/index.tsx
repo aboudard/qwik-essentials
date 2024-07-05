@@ -1,9 +1,8 @@
-import React from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import Layout from '@theme/Layout';
+import clsx from 'clsx';
 
 import styles from './index.module.css';
 
@@ -17,7 +16,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary text-white button--lg"
-            to="/docs/chapter-1">
+            to="/docs/introduction">
             Qwik Tutorial
           </Link>
         </div>
