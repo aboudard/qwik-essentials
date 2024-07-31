@@ -1,0 +1,37 @@
+---
+sidebar_position: 3
+---
+
+# Content of the component
+
+## Display simple data in a component
+
+The most simple way to display data in a component is to use content projection.
+This is done by using the `Slot` component from Qwik.
+
+```tsx
+// src/components/user/user.tsx
+export const User = component$(() => {
+    return (
+        <div>
+            User name : <Slot/>
+        </div>
+    );
+});
+```
+
+Then, we can use the `User` component in the `App` component.
+
+```tsx
+// src/components/app/app.tsx
+export const App = component$(() => {
+    return (
+        <div>
+            <h1>App</h1>
+            <User>
+                John Wayne
+            </User>
+        </div>
+    );
+});
+```
